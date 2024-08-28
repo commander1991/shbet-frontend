@@ -1,0 +1,226 @@
+@import "../../../Global.scss";
+
+.intro {
+  background-color: white;
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    height: 1500px !important;
+  }
+
+  .leftIntro {
+    flex: 0.5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+      flex: 0.4;
+    }
+
+    .imgContainerIntro {
+      width: 600px;
+      height: 600px;
+      background-color: crimson;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: right;
+
+      @include mobile {
+        align-items: space-evenly;
+        width: 350px;
+        height: 350px;
+
+      }
+
+      @include tablet {
+        justify-content: space-evenly;
+      }
+
+      img {
+        height: 100%;
+        width: 500px;
+        height: 500px;
+        top: -20px;
+        border-radius: 50%;
+
+        @include mobile {
+          align-items: space-evenly;
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+
+    .imgBasicKnowledge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      margin-right: 20px;
+
+      @include mobile {
+        display: flex;
+        margin-right: 0px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      img {
+        width: 100px;
+        height: 130px;
+        margin-right: 50px;
+        margin-left: 50px;
+
+        @include mobile {
+          align-items: space-evenly;
+          width: 50px;
+          height: 70px;
+        }
+      }
+    }
+  }
+
+  .rightIntro {
+    flex: 0.5;
+    position: relative;
+
+    .wrapperIntro {
+      width: 100%;
+      height: 100%;
+      margin-left: 10px;
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .imgBrands {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 100px;
+        margin-top: 100px;
+
+        @include mobile {
+          margin-right: 0;
+          margin-top: 0;
+        }
+
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+        }
+
+        img {
+          margin-left: 10px;
+          margin-right: 10px;
+          width: 100px;
+          height: 100px;
+
+          @include mobile {
+            display: flex;
+            justify-content: space-evenly;
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        .imgBrandsGroup {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          @include mobile {
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            img {
+              margin-left: 5px;
+              margin-right: 5px;
+              display: flex;
+              justify-content: space-evenly;
+            }
+          }
+
+        }
+      }
+
+      @include mobile {
+        padding-left: 0;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 60px;
+        margin: 10px 0;
+
+        @include mobile {
+          font-size: 40px;
+        }
+      }
+
+      h2 {
+        font-size: 35px;
+      }
+
+      h3 {
+        font-size: 30px;
+
+        @include mobile {
+          font-size: 20px;
+        }
+
+        span {
+          font-size: inherit;
+          color: crimson;
+        }
+
+        .ityped-cursor {
+          animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+          50% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    a {
+      position: absolute;
+      bottom: 10px;
+      left: 40%;
+
+      img {
+        width: 30px;
+        animation: arrowBlink 2s infinite;
+      }
+
+      @keyframes arrowBlink {
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

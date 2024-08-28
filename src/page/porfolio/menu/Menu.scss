@@ -1,0 +1,63 @@
+@import "../../../App.scss";
+@import "../../../Global.scss";
+
+.menu {
+  width: 400px;
+  height: 100%;
+  background-color: #15023a;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+  .menuHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 90px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  &.active {
+    right: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 26px;
+    font-weight: 300;
+    color: white;
+    width: 85%;
+
+    li {
+      margin-bottom: 25px;
+
+      a {
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footerMenu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid white;
+    color: white;
+    font-size: 20px;
+  }
+}

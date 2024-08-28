@@ -1,0 +1,57 @@
+<Navbar bg="header" expand="lg" className="bg-body-tertiary">
+                    <Container>
+                        <Nav.Item className='nav-link'>
+                            <h6>
+                                <span>Hi {user.account.username} !</span>
+                                {/* <span className='mx-4'>{user.account.groupWithRoles.description}</span> */}
+                            </h6>
+                            <span>{user.account.userId}</span>
+                        </Nav.Item>
+                        <Nav.Item className='mx-2'>
+                            <div className='topRight'>
+                                <div className="topbarIconContainer">
+                                    <FontAwesomeIcon icon={faWallet} />
+                                    <span className='topNumber'>{user.account.point}</span>
+                                </div>
+                                <div className="topbarIconContainer">
+                                    <FontAwesomeIcon icon={faMoneyBillTransfer} />
+                                    <span className='topNumber'>{user.account.pointLock}</span>
+                                </div>
+                                <div className="topbarIconContainer">
+                                    <FontAwesomeIcon icon={faBell} />
+                                    <span className="topIconBadge">
+                                        2
+                                    </span>
+                                </div>
+                            </div>
+                        </Nav.Item>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav>
+                                {user && user.isAuthenticated === true && user.account.groupWithRoles.id === 1
+                                    ?
+                                    <>
+                                        <NavDropdown title={NavDropdownTitle} id="basic-nav-dropdown" className='basic-nav-dropdown' >
+                                            <NavDropdown.Item href="#action/3.1">Info</NavDropdown.Item>
+                                            <NavDropdown.Item href="#action/3.1">Change passwrod</NavDropdown.Item>
+                                            <NavDropdown.Divider />
+                                            <NavDropdown.Item>
+                                                <span onClick={() => handleLogout()}>Log out</span>
+                                            </NavDropdown.Item>
+                                        </NavDropdown>
+                                    </>
+                                    :
+                                    <Link className='nav-link' to='/login' onClick={() => handleLogout()}>Log out</Link>
+                                }
+                            </Nav>
+                            <Nav className=" navbar-light flex-row justify-content-between navbar-nav">
+                                <NavLink to='/home' className='nav-link'><FaHouse /> Home</NavLink>
+                                <NavLink to='/users' className='nav-link'><FaUserLarge /> Users</NavLink>
+                                <NavLink to='/friends' className='nav-link'><FaAddressBook /> Friends</NavLink>
+                                <NavLink to='/roles' className='nav-link'><FaScroll /> Roles</NavLink>
+                                <NavLink to='/group-role' className='nav-link'><FaFilePen /> Group Roles</NavLink>
+                                <NavLink to='/phui' className='nav-link'><FaBriefcase /> Project</NavLink>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>

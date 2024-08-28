@@ -1,0 +1,20 @@
+.moneyTitle {
+    display: flex;
+    flex-direction: row;
+}
+
+.moneyCurrent {
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.current {
+    margin-left: 10px;
+}
+
+.exchange {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -1,0 +1,59 @@
+import React, { useState, useEffect } from 'react'
+import { getUserAccount } from '../services/userService'
+
+const UserContext = React.createContext(null)
+
+const UserProvider = ({ children }) => {
+
+    // User is the name of the "data" that gets stored in context
+    const userDefault = {
+        isLoading: true,
+        isAuthenticated: false,
+        token: "",
+        account: {}
+    }
+
+    const [user, setUser] = useState(userDefault)
+
+    // Login updates the user data with a name parameter
+    const loginContext = (userData) => {
+        setUser({ ...userData, isLoading: false })
+    }
+
+    // Logout update the user data to default
+    const logoutContext = () => {
+        setUser({ ...userDefault, isLoading: false })
+    }
+
+    const fetchUser = async () => {
+        let response = await getUserAccount()
+        if (response && +response.EC === 0) {
+            let groupWithRoles = response.DT.groupWithRoles
+            let username = response.DT.username
+            let userId = response.DT.userId
+            let point = response.DT.point
+            let pointLock = response.DT.pointLock
+            let token = response.DT.access_token
+            let data = {
+                isAuthenticated: true,
+                token,
+                account: { groupWithRoles, username, userId, point, pointLock },
+                isLoading: false,
+            }
+            setUser(data)
+        } else {
+            setUser({ ...userDefault, isLoading: false })
+        }
+    }
+    useEffect(() => {
+        fetchUser()
+    }, [])
+
+    return (
+        <UserContext.Provider value={{ user, loginContext, logoutContext }}>
+            {children}
+        </UserContext.Provider>
+    )
+}
+
+export { UserContext, UserProvider }

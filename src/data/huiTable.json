@@ -1,0 +1,17 @@
+[
+    {
+        "no": 1,
+        "id": "d100030050001052024",
+        "name": "Ngày-1tr-30p-t500",
+        "type": "d",
+        "member": 30,
+        "price": 1000,
+        "donate": 500,
+        "period": "5/30",
+        "date-start": "2024-05-01",
+        "date-end": "2024-05-01",
+        "owner": "Nguyễn Văn A",
+        "status": 1, 
+        "desc": "Hụi ngày 1tr, 30 phần, thảo 500k, khui ngày 1/5/2024"
+    }
+]
